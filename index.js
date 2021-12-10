@@ -13,7 +13,7 @@ var c = require('./config');
 var commands = (function requireCommands(){
 
   var cmds = {};
-  var p = path.join(__dirname, 'lib');
+  var p = path.join(__dirname, 'lib', 'commands');
 
   try {
     var scripts = fs.readdirSync(p);
@@ -35,7 +35,6 @@ var commands = (function requireCommands(){
  * --dir {String} local modules directory name
  */
 module.exports = function localModules(o) {
-
   /**
    * get options right, the options object is used as a `blackboard` as well. lookup: blackboard design pattern.
    */
@@ -68,7 +67,7 @@ module.exports = function localModules(o) {
   options.pkg = JSON.parse(options.packageJSON);
   options.pkg.dependencies = options.pkg.dependencies || {};
 
-  // try read local_modules directory
+  // try to read local_modules directory
   var directories = [];
   try {
     directories = fs.readdirSync(options.dirPath);

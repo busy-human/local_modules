@@ -1,0 +1,21 @@
+{
+    "name": "examples",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "local_modules": "file:local_modules/local_modules",
+        "awesome": "file:local_modules/awesome",
+        "rad": "file:local_modules/rad"
+    },
+    "local_modules": {
+        "paths": {
+            "local_modules": ".."
+        }
+    }
+}

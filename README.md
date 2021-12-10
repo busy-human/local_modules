@@ -4,7 +4,29 @@
 
 With `local_modules` you can develop your node.js library code in your application, as if they were node_modules published on npm.
 
-**Benefits**
+## Busy Human Fork Information
+
+local_modules was originally created by Andi Neck. The source project took the approach of switching out the source of the node_module in the node_modules directory. This works fine if you are able to deploy your source code directly from your machine without any sort of additional checkout and build process on a server, but is a problem if your build process involves re-creating the software without the full local context.
+
+This fork solves that problem by changing the approach to **create a source that is independent of local context**. This makes it so the code can be distributed and packaged as needed, readily separating it from the local context.
+
+Primarily this is being set up to allow monorepo dependencies to be used independently, but it could also satisfy other software needs where local dependencies are preferred over remote. Often times, in lieu of a monorepo, dependencies must be repeatedly published to a registry such as NPM before they are usable in a deploy process. While this does have the advantage of creating a better paper trail and deterministic behavior, the overhead of iteratively redeploying to get things working in the first place is excessive and tedious.
+
+### Fork changes
+
+- All `local_modules` are formally defined via either a .localmodulesrc file; or for a monorepo, in the package.json
+- Local modules are linked or copied *into* your project in the `local_modules` folder by this CLI tool.
+- Local modules are defined in package.json as "file:" modules with paths to local_modules/module instead of external paths
+- Command `lm link` will link the dependencies into the local_modules folder *and* link your node_module.
+- Command `lm install` will copy the dependencies into the local_modules folder, replacing links and running install
+- Supports nested dependencies; `lm install` will recursively install local_modules of any included local_modules
+
+#### TODO
+
+.localmodulesrc file not yet supported
+
+## Benefits
+
 - your module contains all it's dependencies
 - require your local modules with absolute paths (no more: `require('../../../../server/controller.js')`)
 - your application's package.json does not get bloated.
@@ -13,12 +35,12 @@ With `local_modules` you can develop your node.js library code in your applicati
 - your `local_modules` do not have to be developed inside the `node_modules` directory.
 - it supports your development workflow and installs `local_modules` as local npm modules.
 
-**why would I need a module for this?**
+## Motivation: Why would I need a module for this?
 
 > read: [MOTIVATION](MOTIVATION.md)
 
 
-**whow does it work?**
+## How does it work?
 
 - during *development*, it installs your local modules dependencies and links and links your local modules into the `node_modules` directory.
 

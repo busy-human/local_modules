@@ -1,5 +1,5 @@
 {
-  "name": "local_modules",
+  "name": "@busy-human/local_modules",
   "version": "1.0.8",
   "description": "embeddable npm local_modules.",
   "main": "index.js",

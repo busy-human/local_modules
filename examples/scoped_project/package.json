@@ -1,5 +1,5 @@
 {
-  "name": "base_project",
+  "name": "@scope/scoped_project",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

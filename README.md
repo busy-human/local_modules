@@ -23,7 +23,12 @@ Primarily this is being set up to allow monorepo dependencies to be used indepen
 
 #### TODO
 
-.localmodulesrc file not yet supported
+1. Support scoped modules (e.g. @busy-human/module)
+1. Create local_modules folder if it doesn't exist
+1. Support nested local_modules (e.g. when local_modules are contained within a local_module)
+1. Make sure `lm pack` unlinks node_modules (may be a race condition?)
+1. Throw an exception if unlisted modules are in the local_modules folder
+1. .localmodulesrc file for configuration
 
 ## Benefits
 

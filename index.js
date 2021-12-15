@@ -39,6 +39,7 @@ module.exports = function localModules(o) {
     /**
    * get options right, the options object is used as a `blackboard` as well. lookup: blackboard design pattern.
    */
+  /** @type {import('./lib/types.js').GlobalCommandOptions} */
     var options = defaults({}, o);
     defaults(options, c);
 

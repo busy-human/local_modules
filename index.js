@@ -8,7 +8,7 @@ var path = require('path');
 var defaults = require('defaults');
 
 var c = require('./config');
-const { coerceLocalModulesDirectory } = require('./lib/config-controller');
+const { coerceLocalModulesDirectory } = require('./lib/util/config-controller');
 
 // require all commands located in "./lib" folder
 var commands = (function requireCommands(){

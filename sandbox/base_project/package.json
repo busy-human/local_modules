@@ -1,7 +1,8 @@
 {
     "dependencies": {
         "external_project": "file:local_modules/external_project",
-        "@scope/scoped_project": "file:local_modules/@scope/scoped_project"
+        "@scope/scoped_project": "file:local_modules/@scope/scoped_project",
+        "nest_project": "file:local_modules/nest_project"
     },
     "local_modules": {
         "paths": {},

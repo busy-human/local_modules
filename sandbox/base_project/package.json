@@ -1,6 +1,7 @@
 {
     "dependencies": {
-        "external_project": "file:local_modules/external_project"
+        "external_project": "file:local_modules/external_project",
+        "@scope/scoped_project": "file:local_modules/@scope/scoped_project"
     },
     "local_modules": {
         "paths": {},

@@ -8,8 +8,10 @@ var path = require('path');
 var defaults = require('defaults');
 
 var c = require('./config');
-const { coerceLocalModulesDirectory } = require('./lib/util/config-controller');
 const PackageController = require('./lib/util/package-controller.js');
+const Globals = require('./lib/util/globals');
+const Packages = require("./lib/util/packages.js");
+Packages.controllerClass = PackageController;
 
 // require all commands located in "./lib" folder
 var commands = (function requireCommands(){
@@ -63,10 +65,16 @@ module.exports = function localModules(o) {
     options.dirPath = path.join(process.cwd(), options.dir);
     options.packagePath = path.join(process.cwd(), options.package);
 
-    coerceLocalModulesDirectory(options);
+    Globals.dir = options.dir;
+    Globals.package = options.package;
+
+
 
     // parse package.json
-    options.pkg = new PackageController(options.packagePath, options);
+    options.pkg = new PackageController(options.packagePath);
+    options.pkg.local_modules.coerceDirectory();
+
+    Packages.setRootPackage( options.pkg );
 
     // try to read local_modules directory
     options.modules = resolveModules(options.dirPath);

@@ -9,6 +9,7 @@ var defaults = require('defaults');
 
 var c = require('./config');
 const { coerceLocalModulesDirectory } = require('./lib/util/config-controller');
+const PackageController = require('./lib/util/package-controller.js');
 
 // require all commands located in "./lib" folder
 var commands = (function requireCommands(){
@@ -64,12 +65,8 @@ module.exports = function localModules(o) {
 
     coerceLocalModulesDirectory(options);
 
-    // read package.json
-    options.packageJSON = fs.readFileSync(options.packagePath, 'utf8');
-
     // parse package.json
-    options.pkg = JSON.parse(options.packageJSON);
-    options.pkg.dependencies = options.pkg.dependencies || {};
+    options.pkg = new PackageController(options.packagePath, options);
 
     // try to read local_modules directory
     options.modules = resolveModules(options.dirPath);
@@ -88,36 +85,37 @@ module.exports = function localModules(o) {
 
 };
 
+
 function resolveModules(baseDirectory) {
-        // try to read a local_module directory or subdirectory
-        var directories = [];
-        var initialResults = [];
-        var modules = [];
-        try {
-            initialResults = fs.readdirSync(baseDirectory);
-        } catch (e) {
-            console.error('could not read local module directory: ' + e.message);
+    // try to read a local_module directory or subdirectory
+    var directories = [];
+    var initialResults = [];
+    var modules = [];
+    try {
+        initialResults = fs.readdirSync(baseDirectory);
+    } catch (e) {
+        console.error('could not read local module directory: ' + e.message);
+    }
+
+    // remove non directories
+    directories = initialResults.filter(function(entry) {
+            var dir = path.join(baseDirectory, entry);
+            return fs.statSync(dir).isDirectory();
+    });
+
+    directories.forEach(dir => {
+        // Resolve Scoped Modules
+        if(dir.indexOf("@") >= 0) {
+            var scopedModules = resolveModules(path.resolve(baseDirectory, dir));
+            scopedModules.forEach(sDir => {
+                modules.push(`${dir}/${sDir}`);
+            });
+        } else {
+            modules.push(dir)
         }
+    });
 
-        // remove non directories
-        directories = initialResults.filter(function(entry) {
-                var dir = path.join(baseDirectory, entry);
-                return fs.statSync(dir).isDirectory();
-        });
-
-        directories.forEach(dir => {
-            // Resolve Scoped Modules
-            if(dir.indexOf("@") >= 0) {
-                var scopedModules = resolveModules(path.resolve(baseDirectory, dir));
-                scopedModules.forEach(sDir => {
-                    modules.push(`${dir}/${sDir}`);
-                });
-            } else {
-                modules.push(dir)
-            }
-        });
-
-        return modules;
+    return modules;
 }
 
 /**

@@ -1,24 +1,12 @@
 {
-    "name": "base_project",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "external_project": "file:local_modules/external_project-1.0.0.tgz",
-        "embedded_project": "file:local_modules/embedded_project",
-        "@scope/scoped_project": "file:local_modules/scope-scoped_project-1.0.0.tgz",
-        "nest_project": "file:local_modules/nest_project-1.0.0.tgz"
-    },
-    "local_modules": {
-        "paths": {
-            "external_project": "../external_project/",
-            "@scope/scoped_project": "../scoped_project/",
-            "nest_project": "../nest_project/"
-        }
-    }
+  "name": "base_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
 }

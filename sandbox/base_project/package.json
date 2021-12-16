@@ -1,15 +1,15 @@
 {
     "dependencies": {
-        "external_project": "file:local_modules/external_project-1.0.0.tgz",
-        "embedded_project": "file:local_modules/embedded_project"
+        "external_project": "file:local_modules/external_project",
+        "embedded_project": "file:local_modules/embedded_project",
+        "nest_project": "file:local_modules/nest_project"
     },
     "local_modules": {
         "paths": {
-            "external_project": "../external_project/"
+            "external_project": "../external_project/",
+            "nest_project": "../nest_project/"
         },
-        "packed": {
-            "external_project": "local_modules/external_project-1.0.0.tgz"
-        }
+        "packed": {}
     },
     "name": "base_project",
     "version": "1.0.0",

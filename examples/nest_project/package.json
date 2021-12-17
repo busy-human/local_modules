@@ -11,13 +11,5 @@
     "dependencies": {
         "is-browser": "^2.0.1",
         "nested_project": "file:local_modules/nested_project"
-    },
-    "local_modules": {
-        "paths": {
-            "nested_project": "../nested_project/"
-        },
-        "packed": {
-
-        }
     }
 }

@@ -1,10 +1,8 @@
 {
     "dependencies": {
-        "external_project": "file:local_modules/external_project-1.0.0.tgz",
-        "embedded_project": "file:local_modules/embedded_project",
-        "@scope/scoped_project": "file:local_modules/scope-scoped_project-1.0.0.tgz",
-        "nest_project": "file:local_modules/nest_project-1.0.0.tgz",
-        "nested_project": "file:local_modules/nested_project-1.0.0.tgz"
+        "external_project": "file: local_modules/external_project",
+        "@scope/scoped_project": "file: local_modules/@scope/scoped_project",
+        "nest_project": "file: local_modules/nest_project"
     },
     "local_modules": {
         "paths": {
@@ -12,14 +10,8 @@
             "@scope/scoped_project": "../scoped_project/",
             "nest_project": "../nest_project/"
         },
-        "packed": {
-            "external_project": "local_modules/external_project-1.0.0.tgz",
-            "@scope/scoped_project": "local_modules/scope-scoped_project-1.0.0.tgz",
-            "nest_project": "local_modules/nest_project-1.0.0.tgz"
-        },
-        "tempPacked": {
-            "nested_project": "local_modules/nested_project-1.0.0.tgz"
-        }
+        "packed": {},
+        "tempPacked": {}
     },
     "name": "base_project",
     "version": "1.0.0",

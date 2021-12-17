@@ -10,6 +10,6 @@
     "license": "ISC",
     "dependencies": {
         "is-browser": "^2.0.1",
-        "nested_project": "file:local_modules/nested_project"
+        "nested_project": "file:local_modules/nested_project-1.0.0.tgz"
     }
 }

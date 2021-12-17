@@ -85,6 +85,7 @@ module.exports = function localModules(o) {
     var executed = Object.keys(commands).some(function(command){
         if (options.cmd == command || options[command]) {
             commands[command](options);
+
             return true;
         }
     });

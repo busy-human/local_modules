@@ -22,11 +22,11 @@ test('should add and remove local modules to the package.json', function(t) {
 
   lm({cmd: 'add', dir: 'local_modules'});
   var added = parsePackageJson().dependencies;
-  t.equal(added.awesome, 'file:local_modules/awesome');
-  t.equal(added.rad, 'file:local_modules/rad');
+  t.equal(added.awesome, 'file:./local_modules/awesome');
+  t.equal(added.rad, 'file:./local_modules/rad');
 
   lm({cmd: 'remove', dir: 'local_modules'});
-  var removed = parsePackageJson().dependencies;
+  var removed = parsePackageJson()lm.dependencies;
   t.equal(removed.awesome, undefined);
   t.equal(removed.rad, undefined);
 

@@ -1,12 +1,15 @@
 {
     "dependencies": {
-        "external_project": "file:local_modules/external_project",
-        "@scope/scoped_project": "file:local_modules/@scope/scoped_project",
-        "nest_project": "file:local_modules/nest_project"
+        "external_project": "file:local_modules/external_project-1.0.0.tgz",
+        "embedded_project": "file:local_modules/embedded_project"
     },
     "local_modules": {
-        "paths": {},
-        "packed": {}
+        "paths": {
+            "external_project": "../external_project/"
+        },
+        "packed": {
+            "external_project": "local_modules/external_project-1.0.0.tgz"
+        }
     },
     "name": "base_project",
     "version": "1.0.0",

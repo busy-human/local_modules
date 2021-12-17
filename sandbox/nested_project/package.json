@@ -4,7 +4,8 @@
     },
     "local_modules": {
         "paths": {},
-        "packed": {}
+        "packed": {},
+        "tempPacked": {}
     },
     "name": "nested_project",
     "version": "1.0.0",

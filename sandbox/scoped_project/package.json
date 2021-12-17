@@ -2,7 +2,8 @@
     "dependencies": {},
     "local_modules": {
         "paths": {},
-        "packed": {}
+        "packed": {},
+        "tempPacked": {}
     },
     "name": "@scope/scoped_project",
     "version": "1.0.0",

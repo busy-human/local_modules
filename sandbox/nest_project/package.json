@@ -1,4 +1,16 @@
 {
+    "dependencies": {
+        "is-browser": "^2.0.1",
+        "nested_project": "file:local_modules/nested_project-1.0.0.tgz"
+    },
+    "local_modules": {
+        "paths": {
+            "nested_project": "../nested_project/"
+        },
+        "packed": {
+            "nested_project": "local_modules/nested_project-1.0.0.tgz"
+        }
+    },
     "name": "nest_project",
     "version": "1.0.0",
     "description": "",
@@ -7,14 +19,5 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "is-browser": "^2.0.1",
-        "nested_project": "file:local_modules/nested_project"
-    },
-    "local_modules": {
-        "paths": {
-            "nested_project": "../nested_project/"
-        }
-    }
+    "license": "ISC"
 }

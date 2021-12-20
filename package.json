@@ -1,10 +1,10 @@
 {
   "name": "@busy-human/local_modules",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "embeddable npm local_modules.",
   "main": "index.js",
   "bin": {
-    "lm": "index.js",
+    "lpm": "index.js",
     "local_modules": "index.js"
   },
   "directories": {

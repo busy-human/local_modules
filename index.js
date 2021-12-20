@@ -11,6 +11,9 @@ var c = require('./config');
 const PackageController = require('./lib/util/package-controller.js');
 const Globals = require('./lib/util/globals');
 const Packages = require("./lib/util/packages.js");
+const { Logger } = require('./lib/util/logger');
+const checkInstall = require("./lib/util/check-install.js");
+const { install } = require('./lib/util/package-manager-control');
 Packages.controllerClass = PackageController;
 
 // require all commands located in "./lib" folder
@@ -59,6 +62,8 @@ module.exports = function localModules(o) {
     options.force = options.force || options.f;
     options.modules = [];
 
+    Logger.setCommandPrefix(options.cmd);
+
     /**
    * basic processing: read local_modules and package.json
    */
@@ -75,6 +80,14 @@ module.exports = function localModules(o) {
     options.pkg.local_modules.coerceDirectory();
 
     Packages.setRootPackage( options.pkg );
+
+    Logger.setPrefix( options.pkg.json.name );
+
+    // Ensure node_modules have already been installed at least once
+    if( ! checkInstall(process.cwd()) ) {
+        install(options);
+    }
+
 
     // try to read local_modules directory
     options.modules = resolveModules(options.dirPath);
@@ -120,7 +133,7 @@ function resolveModules(baseDirectory) {
                 modules.push(`${dir}/${sDir}`);
             });
         } else {
-            modules.push(dir)
+            modules.push(dir);
         }
     });
 

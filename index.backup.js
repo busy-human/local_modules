@@ -8,12 +8,13 @@ var path = require('path');
 var defaults = require('defaults');
 
 var c = require('./config');
-const PackageController = require('./lib/util/package-controller.js');
-const Globals = require('./lib/util/globals');
-const Packages = require("./lib/util/packages.js");
-const { Logger } = require('./lib/util/logger');
-const checkInstall = require("./lib/util/check-install.js");
-const { install } = require('./lib/util/package-manager-control');
+const PackageController = require('./src/lib/util/package-controller.js');
+const Globals = require('./src/lib/util/globals');
+const Packages = require("./src/lib/util/packages.js");
+const { Logger } = require('./src/lib/util/logger');
+const checkInstall = require("./src/lib/util/check-install.js");
+const { install } = require('./src/lib/util/package-manager-control');
+const yargs = require("yargs");
 Packages.controllerClass = PackageController;
 
 // require all commands located in "./lib" folder
@@ -36,6 +37,9 @@ var commands = (function requireCommands(){
 
 })();
 
+yargs
+    .command()
+
 /**
  *
  * @param o options:
@@ -45,7 +49,7 @@ module.exports = function localModules(o) {
     /**
    * get options right, the options object is used as a `blackboard` as well. lookup: blackboard design pattern.
    */
-  /** @type {import('./lib/types.js').GlobalCommandOptions} */
+  /** @type {import('./src/lib/types.js').GlobalCommandOptions} */
     var options = defaults({}, o);
     defaults(options, c);
 

@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+      "outDir": "../dist",
+      "noImplicitAny": true,
+      "sourceMap": true,
+      "module": "CommonJS",
+      "target": "ES6",
+      "jsx": "react",
+      "allowJs": true,
+      "moduleResolution": "node",
+      "lib": ["ES2020", "DOM"],
+      "allowSyntheticDefaultImports": true,
+      "importsNotUsedAsValues": "remove",
+      "declaration": true,
+      "esModuleInterop": true
+    },
+    "include": [
+      "lib/commands/version",
+      "index.ts"
+    ]
+  }

@@ -1,0 +1,27 @@
+{
+  "manifest": {
+    "name": "nested_project",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": {},
+    "license": "ISC",
+    "dependencies": {
+      "is-browser": "^2.0.1"
+    },
+    "_registry": "npm",
+    "_loc": "/Users/jonathanoaklyn/Library/Caches/Yarn/v6/npm-nested-project-1.0.0-3af96018-3a37-43ab-995e-81200b1558a2-1646088055042/node_modules/nested_project/package.json"
+  },
+  "artifacts": [],
+  "remote": {
+    "type": "copy",
+    "registry": "npm",
+    "hash": "3af96018-3a37-43ab-995e-81200b1558a2-1646088055042",
+    "reference": "/Users/jonathanoaklyn/dev/busy-human/local_modules/sandbox/base_project/local_modules/nested_project"
+  },
+  "registry": "npm",
+  "hash": "3af96018-3a37-43ab-995e-81200b1558a2-1646088055042"
+}

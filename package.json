@@ -12,7 +12,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "cd examples && node ../test/test.js"
+    "test": "mocha --exclude **/test.old.js"
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,9 @@
     "subarg": "^1.0.0"
   },
   "devDependencies": {
-    "tape": "^4.2.2"
+    "chai": "^4.3.6",
+    "fs-extra": "^10.0.1",
+    "mocha": "^9.2.1",
+    "mocha-sinon": "^2.1.2"
   }
 }

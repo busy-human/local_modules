@@ -2,8 +2,5 @@
     "paths": {
         "nested_project": "../nested_project/"
     },
-    "packed": {
-        "nested_project": "local_modules/nested_project-1.0.0.tgz"
-    },
-    "tempPacked": {}
+    "packed": {}
 }
